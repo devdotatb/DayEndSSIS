@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{07CF4BC1-A88F-485E-B31E-6D73B28623E8}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{81ADFDD7-6C5C-47BC-B211-167546FC4A78}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -18403,7 +18403,7 @@
         <NodeLayout
           Size="162,42"
           Id="Package\Foreach Zip\Import DB\ST_Scard_Detail"
-          TopLeft="553,326" />
+          TopLeft="553,327" />
         <EdgeLayout
           Id="Package\Foreach Zip\Import DB.Paths[Data Conversion Output]"
           TopLeft="342.75,267">
@@ -18504,14 +18504,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58"
+              EndConnector="0,59"
               Start="0,0"
-              End="0,50.5">
+              End="0,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5" />
+                    End="0,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
