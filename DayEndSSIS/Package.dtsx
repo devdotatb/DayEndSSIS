@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{81ADFDD7-6C5C-47BC-B211-167546FC4A78}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{DCC31CCE-6EE2-4927-809E-DB76B8107F1E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -30,6 +30,16 @@
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{448B8234-F20F-4537-B544-4FDAB185E5B4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErrorPath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{475E310B-0D26-4AEC-B4C1-7BFD5EF39867}"
@@ -51,12 +61,43 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{53BE8738-C6EB-47B1-891E-D758602FB424}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SuccessPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Files\XML_Complete</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{F1C2FBA8-F257-4293-827F-D8F12B87406E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="varExePath">
       <DTS:VariableValue
         DTS:DataType="8">C:\Files\x64\7za.exe</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99E4DE6D-47AF-4357-941D-CAE38C7CF77E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FilePath] + &quot;\\&quot; + @[User::FileName] + &quot;.xml&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XmlFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Files\XMLZIPPED\.xml</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0187E982-460D-4EB0-BE97-2F7FEC5B3E17}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FilePath] + &quot;\\&quot; + @[User::FileName] + &quot;.zip&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ZipFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Files\XMLZIPPED\.zip</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -82,7 +123,7 @@
             <FEFEProperty
               FileSpec="*.zip" />
             <FEFEProperty
-              FileNameRetrievalType="0" />
+              FileNameRetrievalType="2" />
             <FEFEProperty
               Recurse="0" />
           </ForEachFileEnumeratorProperties>
@@ -91,8 +132,28 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Foreach Zip\Delete XML"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{853C1EC6-7684-4A3E-A06B-5658711313DC}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete XML"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="User::XmlFileName"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach Zip\Import DB"
           DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
           DTS:Description="Data Flow Task"
           DTS:DTSID="{F74B4203-E0BD-46AD-B4C6-03EFCB0C72C1}"
           DTS:ExecutableType="Microsoft.Pipeline"
@@ -100,6 +161,8 @@
           DTS:ObjectName="Import DB"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="[XML Source].[XMLData]">@[User::XmlFileName]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <pipeline
               version="1">
@@ -2340,7 +2403,7 @@
                       dataType="System.String"
                       description="The XML data used by the XML source adapter."
                       expressionType="Notify"
-                      name="XMLData">C:\Files\XMLNEEDATLEASTONE\6012134_DayEnd_083-01_20221108_1501.xml</property>
+                      name="XMLData">C:\Files\XMLZIPPED\.xml</property>
                     <property
                       dataType="System.String"
                       description="The variable used by the XML source adapter to specify XML data."
@@ -18285,6 +18348,27 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Foreach Zip\Move finished Zip"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{C9CE3A1A-8A87-45D0-951A-E37715A685BE}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move finished Zip"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::ZipFileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::SuccessPath"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach Zip\Unzip"
           DTS:CreationName="Microsoft.ExecuteProcess"
           DTS:DelayValidation="True"
@@ -18297,13 +18381,13 @@
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:PropertyExpression
-            DTS:Name="Arguments">"e " + @[User::FileName] + " -o" + @[User::FilePath]</DTS:PropertyExpression>
+            DTS:Name="Arguments">"e " + @[User::ZipFileName]  + " -o" + @[User::FilePath]</DTS:PropertyExpression>
           <DTS:PropertyExpression
             DTS:Name="Executable">@[User::varExePath]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <ExecuteProcessData
               Executable="C:\Files\x64\7za.exe"
-              Arguments="e  -oC:\Files\XMLZIPPED" />
+              Arguments="e C:\Files\XMLZIPPED\.zip -oC:\Files\XMLZIPPED" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -18311,17 +18395,33 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Zip.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{31957481-6817-4202-B593-4F962E227AB0}"
+          DTS:DTSID="{CCE030BD-5E64-4BE7-9B64-42F6FD77799A}"
           DTS:From="Package\Foreach Zip\Unzip"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Foreach Zip\Import DB" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Zip.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{CF0FDA42-38B9-4BCC-8089-9C7CB4E7A46C}"
+          DTS:From="Package\Foreach Zip\Import DB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Zip\Delete XML" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Zip.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{1408B8C9-C51C-438E-A264-F5B9D63FA5D4}"
+          DTS:From="Package\Foreach Zip\Delete XML"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Zip\Move finished Zip" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{70523895-CE09-4523-A943-A3F509364B11}"
-          DTS:ObjectName="{70523895-CE09-4523-A943-A3F509364B11}"
+          DTS:DTSID="{F9C374D9-7F31-480C-AF3E-2A62A2AC8358}"
+          DTS:ObjectName="{F9C374D9-7F31-480C-AF3E-2A62A2AC8358}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -18338,29 +18438,105 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Foreach Zip\Move finished Zip"
+          TopLeft="36.5,241.5" />
         <NodeLayout
           Size="107,42"
           Id="Package\Foreach Zip\Unzip"
-          TopLeft="54.5,8.5" />
+          TopLeft="60.5,62.5" />
         <NodeLayout
           Size="128,42"
           Id="Package\Foreach Zip\Import DB"
-          TopLeft="42,101" />
+          TopLeft="50,112" />
         <EdgeLayout
           Id="Package\Foreach Zip.PrecedenceConstraints[Constraint]"
-          TopLeft="107,50.5">
+          TopLeft="60.5,83.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.5"
+              EndConnector="-10.5,49.5"
               Start="0,0"
-              End="0,43">
+              End="-18,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43" />
+                    End="-29,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29,0"
+                    Point2="-33,0"
+                    Point3="-33,4" />
+                  <mssgle:LineSegment
+                    End="-33,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33,45.5"
+                    Point2="-33,49.5"
+                    Point3="-29,49.5" />
+                  <mssgle:LineSegment
+                    End="-18,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Foreach Zip\Delete XML"
+          TopLeft="49,159.5" />
+        <EdgeLayout
+          Id="Package\Foreach Zip.PrecedenceConstraints[Constraint 1]"
+          TopLeft="50,138.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-1,41.8333333333333"
+              Start="0,0"
+              End="-8.5,41.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-19.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,0"
+                    Point2="-23.5,0"
+                    Point3="-23.5,4" />
+                  <mssgle:LineSegment
+                    End="-23.5,37.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.5,37.8333333333333"
+                    Point2="-23.5,41.8333333333333"
+                    Point3="-19.5,41.8333333333333" />
+                  <mssgle:LineSegment
+                    End="-8.5,41.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Zip.PrecedenceConstraints[Constraint 2]"
+          TopLeft="118,201.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18372,10 +18548,10 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="246,260"
-          Size="246,302"
+          PanelSize="238,354"
+          Size="238,398"
           Id="Package\Foreach Zip"
-          TopLeft="97,93" />
+          TopLeft="86,70" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
