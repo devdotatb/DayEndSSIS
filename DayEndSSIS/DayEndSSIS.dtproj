@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">GATB-WIN-NUC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiQZapYGrcEKExLpLzMey1wAAAAACAAAAAAAQZgAAAAEAACAAAABPhCtbVqn3e80SVv7yfGOqtZGwprrbj0fdin5NKnYOZgAAAAAOgAAAAAIAACAAAABgg/lRfMXwxWfxWHJxv538l5JGASowP8Y3/gZBbFRcTZAAAACO3WOocm4GtuCxqsD6xeN2M/linvnDzC+0m5pkTsFwUqkl8Lb2NHzjwsI1w6ZTMYQxU1K3lbNkPFDxLx0qg1cEpDYDCVwdSyVX7+vmLpqY3ASB0qZ5PE1kqMInvaoEteA3yk6CbcdDJNaBpxedFfsvw+QsDfnWz1sEPB9p/nAirzSs3V9RR4aRCvDmySbv3wNAAAAAyVR5Z4Jwah5L2MWnFCcsGTMHtqOff/ovnXXaoMKXPEbFQzTzjgPpFuRHQT1f1IWfVjxrABft7JjdUQdpQP4v+A==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiQZapYGrcEKExLpLzMey1wAAAAACAAAAAAAQZgAAAAEAACAAAACsLAzhoksUPcxfPE+RkajrzEhcHNTrriXXTKeeOM+AYAAAAAAOgAAAAAIAACAAAACnlQSQkVN2kjxpK2UaJMT4Pr+lB4Z+IvuW4YSMGnzuepAAAACaAnq0rgEuSqjMyqtxh4/d/ZLpM+uUpxhmVLKvUKSe4vZ2XMrYW0ty2XVIoheIQEy/M7+kDRai4yjzyDmjl+I4Vayi8V2Vs3qxvyY59T7PvYcG95lZM57uFv/WRU9c0kBRlo6b3t2MElM2l+OAYMUBjjSphgp/SML6C4D9TZWCv7+e3Uy06Q9gN1/zO6qLRi1AAAAAMB/6VKiABz/vd0DDjondIb3jOgwykAiDH1NieW9NZICChaRvCudqeL1JBhMhtq0pqXJDNWQITl6aWoN4F2Oh7g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,16 +42,46 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">85</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">94</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{D92D72E6-502F-4C3D-9DB6-7B4F22E48B5F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A95EF807-756A-4C3D-A414-3A4F1A97891A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="CM.6010044_DayEnd_028-01_20221108_1433.zip.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.6010044_DayEnd_028-01_20221108_1433.zip.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Files\testZIP\one\6010044_DayEnd_028-01_20221108_1433.zip</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.LocalHost.EMFO_225.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
@@ -378,6 +408,36 @@
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.two.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.two.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Files\testZIP\two</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
