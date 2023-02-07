@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{3D9B3209-5489-47D0-A154-19115D88A286}">
+  DTS:VersionBuild="118"
+  DTS:VersionGUID="{30E6CE59-8E17-4EF2-8FAC-0CB31AC2BEAD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,23 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\Files\testZIP\one\6010044_DayEnd_028-01_20221108_1433.zip" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com.EMFO_225_DEV.dms_admin]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{62FEB812-D5C9-49F8-ADD7-0AEF546F0E6E}"
+      DTS:ObjectName="ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com.EMFO_225_DEV.dms_admin">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com;User ID=dms_admin;Initial Catalog=EMFO_225_DEV;Provider=SQLNCLI11.1;Application Name=SSIS-Package-{62FEB812-D5C9-49F8-ADD7-0AEF546F0E6E}ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com.EMFO_225_DEV.dms_ad;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiQZapYGrcEKExLpLzMey1wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABLSyJQYqNK9y16ZEY6aCa2n9GpZamG6ogaM6QZ4UqdSAAAAAAOgAAAAAIAACAAAAD86lXp7HZ0a4BBFr5+sdF0kNZ1tr1OKL6g8n4z8eAceyAAAABoXzMmBm7bk7VC7XHsLuZeIo5JX/e3QVnfgYS09ORmwUAAAABk/eISqUCckSs17lEQb+TXjFiqqgqhtbGBt0vIolmqj4T/dYDQTfZZQGuxyvdV4IJvxU4zGZK7QSemaY8xVRUk</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -75,33 +92,6 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{AE1EC4DD-81A0-4D7C-9F7A-492CA7B6C2ED}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="Email_From_Password">
-      <DTS:VariableValue
-        DTS:DataType="8">Mengtest0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{677FDEBC-A714-4D7C-B0AA-A05DD2652EEF}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="Email_From_Username">
-      <DTS:VariableValue
-        DTS:DataType="8">mengietestmail@gmail.com</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{A1FC7AEB-3B9A-4FA0-8436-40E8B9CA2524}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="Email_To">
-      <DTS:VariableValue
-        DTS:DataType="8">meteemeng2@gmail.com</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
       DTS:DTSID="{49DCFBF6-F66A-48D7-B220-C8C8DD1051B1}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
@@ -116,7 +106,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ErrorPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Files\XML_Error</DTS:VariableValue>
+        DTS:DataType="8">D:\DayEnd\mars_gen_error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -135,7 +125,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FilePath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Files\XMLZIPPED</DTS:VariableValue>
+        DTS:DataType="8">D:\DayEnd\mars_transfer_data</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -144,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="SuccessPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Files\XML_Complete</DTS:VariableValue>
+        DTS:DataType="8">D:\DayEnd\mars_gen_complete</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -162,7 +152,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varExePath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Files\x64\7za.exe</DTS:VariableValue>
+        DTS:DataType="8">D:\DayEnd\x64\7za.exe</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -182,7 +172,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="XmlFileName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Files\XMLZIPPED\.xml</DTS:VariableValue>
+        DTS:DataType="8">D:\DayEnd\mars_transfer_data\.xml</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -193,7 +183,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ZipFileName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Files\XMLZIPPED\.zip</DTS:VariableValue>
+        DTS:DataType="8">D:\DayEnd\mars_transfer_data\.zip</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -216,7 +206,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Files\XMLZIPPED" />
+              Folder="D:\DayEnd\mars_transfer_data" />
             <FEFEProperty
               FileSpec="*.zip" />
             <FEFEProperty
@@ -1002,7 +992,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">3</property>
+                      typeConverter="AccessMode">0</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -1023,8 +1013,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   <connections>
                     <connection
                       refId="Package\Foreach Zip\Import DB\ST_ArHeader_dayend.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.EMFO_225]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.EMFO_225]"
+                      connectionManagerID="Package.ConnectionManagers[ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com.EMFO_225_DEV.dms_admin]"
+                      connectionManagerRefId="Package.ConnectionManagers[ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com.EMFO_225_DEV.dms_admin]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1224,8 +1214,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   <connections>
                     <connection
                       refId="Package\Foreach Zip\Import DB\ST_Scard_Detail_dayend.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.EMFO_225]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.EMFO_225]"
+                      connectionManagerID="Package.ConnectionManagers[ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com.EMFO_225_DEV.dms_admin]"
+                      connectionManagerRefId="Package.ConnectionManagers[ec2-18-140-195-208.ap-southeast-1.compute.amazonaws.com.EMFO_225_DEV.dms_admin]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1394,7 +1384,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                       dataType="System.String"
                       description="The XML data used by the XML source adapter."
                       expressionType="Notify"
-                      name="XMLData">C:\Files\XMLZIPPED\.xml</property>
+                      name="XMLData">D:\DayEnd\mars_transfer_data\.xml</property>
                     <property
                       dataType="System.String"
                       description="The variable used by the XML source adapter to specify XML data."
@@ -17398,8 +17388,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             DTS:Name="Executable">@[User::varExePath]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <ExecuteProcessData
-              Executable="C:\Files\x64\7za.exe"
-              Arguments="e C:\Files\XMLZIPPED\.zip -p1234 -oC:\Files\XMLZIPPED" />
+              Executable="D:\DayEnd\x64\7za.exe"
+              Arguments="e D:\DayEnd\mars_transfer_data\.zip -p1234 -oD:\DayEnd\mars_transfer_data" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -18866,7 +18856,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <NodeLayout
           Size="204,42"
           Id="Package\Foreach Zip\Import DB\ST_Scard_Detail_dayend"
-          TopLeft="443,326" />
+          TopLeft="441,320" />
         <NodeLayout
           Size="188,42"
           Id="Package\Foreach Zip\Import DB\ST_ArHeader_dayend"
@@ -18953,18 +18943,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Zip\Import DB.Paths[Data Conversion Output]"
-          TopLeft="546.75,249">
+          TopLeft="545.75,249">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77"
+              EndConnector="0,71"
               Start="0,0"
-              End="0,69.5">
+              End="0,63.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.5" />
+                    End="0,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
